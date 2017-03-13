@@ -1,26 +1,15 @@
 package com.leonlu.code.sample.webapp.ws;
 
-import java.util.Arrays;
-
-import org.springframework.boot.CommandLineRunner;
+import com.leonlu.code.sample.webapp.ws.configuration.ElasticsearchConfiguration;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import com.leonlu.code.sample.webapp.ws.domain.User;
-import com.leonlu.code.sample.webapp.ws.service.UserService;
+import org.springframework.boot.autoconfigure.data.elasticsearch.ElasticsearchAutoConfiguration;
+
 
 @SpringBootApplication // same as @Configuration @EnableAutoConfiguration @ComponentScan
+@EnableAutoConfiguration(exclude = {ElasticsearchConfiguration.class})
 public class App {
-	@Bean
-    CommandLineRunner init(UserService userService) {
-		// add 5 new users after app is started
-        return (evt) ->
-                Arrays.asList("john,alex,mike,mary,jenny".split(","))
-                        .forEach(item -> {
-                            User user = new User(item, (int)(20 + Math.random() * 10));
-                            userService.addUser(user);
-                        });
-    }
 
 	public static void main(String[] args) {
 		SpringApplication.run(App.class, args);

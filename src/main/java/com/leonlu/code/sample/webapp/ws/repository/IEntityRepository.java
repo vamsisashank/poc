@@ -1,10 +1,8 @@
 package com.leonlu.code.sample.webapp.ws.repository;
 
-import java.util.Optional;
-import org.springframework.data.repository.CrudRepository;
 
-import com.leonlu.code.sample.webapp.ws.domain.User;
+import com.leonlu.code.sample.webapp.ws.entity.Entity;
+import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 
-public interface IEntityRepository extends CrudRepository<User, Long> {
-	Optional<User> findByName(String name);
+public interface IEntityRepository extends ElasticsearchRepository<Entity, String> {
 }
