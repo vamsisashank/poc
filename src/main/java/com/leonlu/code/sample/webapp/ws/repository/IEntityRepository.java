@@ -5,6 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.leonlu.code.sample.webapp.ws.domain.User;
 
-public interface UserRepository extends CrudRepository<User, Long> {
+public interface IEntityRepository extends CrudRepository<User, Long> {
 	Optional<User> findByName(String name);
 }

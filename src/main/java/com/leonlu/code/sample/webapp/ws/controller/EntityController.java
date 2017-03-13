@@ -16,11 +16,11 @@ import com.leonlu.code.sample.webapp.ws.service.UserService;
 
 @RestController
 @RequestMapping("/user")
-public class UserController {
+public class EntityController {
 	private UserService userService;
 
 	@Autowired
-	public UserController(UserService userService) {
+	public EntityController(UserService userService) {
 		this.userService = userService;
 	}
 
